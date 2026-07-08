@@ -3,7 +3,7 @@
 //! Unlike pools, charges are not shared across abilities.
 
 use bevy::{
-    ecs::prelude::{Component, Resource},
+    ecs::prelude::Resource,
     reflect::Reflect,
 };
 use std::{fmt::Display, marker::PhantomData};
@@ -83,7 +83,7 @@ use std::collections::HashMap;
 ///     Action::Spell.trigger(&mut abilities_bundle.charges, &mut abilities_bundle.cooldowns, Some(&mut mana_bundle.pool), Some(&mut mana_bundle.ability_costs));
 /// }
 /// ```
-#[derive(Resource, Component, Clone, PartialEq, Eq, Debug, Reflect)]
+#[derive(Resource, Clone, PartialEq, Eq, Debug, Reflect)]
 pub struct ChargeState<A: Abilitylike> {
     /// The underlying [`Charges`].
     charges_map: HashMap<A, Charges>,

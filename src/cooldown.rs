@@ -6,7 +6,7 @@ use crate::{
 };
 
 use bevy::{
-    ecs::prelude::{Component, Resource},
+    ecs::prelude::Resource,
     reflect::Reflect,
 };
 use core::time::Duration;
@@ -52,7 +52,7 @@ use std::{collections::HashMap, fmt::Display, marker::PhantomData};
 /// // We just jumped, so the cooldown isn't ready yet
 /// assert_eq!(cooldowns.ready(&Action::Jump), Err(CannotUseAbility::OnCooldown));
 /// ```
-#[derive(Resource, Component, Debug, Clone, PartialEq, Eq, Reflect)]
+#[derive(Resource, Debug, Clone, PartialEq, Eq, Reflect)]
 pub struct CooldownState<A: Abilitylike> {
     /// The [`Cooldown`] of each action
     ///

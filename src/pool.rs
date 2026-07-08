@@ -151,7 +151,7 @@ pub trait RegeneratingPool: Pool {
 pub struct MaxPoolLessThanMin;
 
 /// Stores the cost (in terms of the [`Pool::Quantity`] of ability) associated with each ability of type `A`.
-#[derive(Component, Resource, Debug, Reflect)]
+#[derive(Resource, Debug, Reflect)]
 pub struct AbilityCosts<A: Abilitylike, P: Pool> {
     /// The underlying cost of each ability.
     cost_map: HashMap<A, P::Quantity>,
