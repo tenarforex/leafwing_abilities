@@ -12,9 +12,9 @@ use leafwing_input_manager::plugin::InputManagerSystem;
 /// This plugin needs to be passed in an [`Actionlike`] enum type that you've created for your game.
 /// Each variant represents a "virtual button" whose state is stored in an [`ActionState`](crate::action_state::ActionState) struct.
 ///
-/// Each [`InputManagerBundle`](crate::InputManagerBundle) contains:
-///  - an [`InputMap`](crate::input_map::InputMap) component, which stores an entity-specific mapping between the assorted input streams and an internal representation of "actions"
-///  - an [`ActionState`](crate::action_state::ActionState) component, which stores the current input state for that entity in an source-agnostic fashion
+/// Each [`InputMap`](crate::input_map::InputMap) component
+///  - stores an entity-specific mapping between the assorted input streams and an internal representation of "actions"
+///  - requires an [`ActionState`](crate::action_state::ActionState) component, which stores the current input state for that entity in a source-agnostic fashion
 ///
 /// If you have more than one distinct type of action (e.g. menu actions, camera actions and player actions), consider creating multiple `Actionlike` enums
 /// and adding a copy of this plugin for each `Actionlike` type.

@@ -253,7 +253,7 @@ pub fn trigger_ability<P: Pool>(
 
 /// This [`Bundle`] allows entities to manage their [`Abilitylike`] actions effectively.
 ///
-/// Commonly combined with an [`InputManagerBundle`](leafwing_input_manager::InputManagerBundle),
+/// Commonly combined with an [`InputMap<A>`](leafwing_input_manager::InputMap<A>),
 /// which tracks whether or not actions are pressed.
 ///
 /// If you would like to track resource costs for your abilities, combine this with a [`PoolBundle`](crate::pool::PoolBundle).

@@ -13,14 +13,13 @@ use std::{collections::HashMap, fmt::Display, marker::PhantomData};
 /// The time until each action of type `A` can be used again.
 ///
 /// Each action may be associated with a [`Cooldown`].
-/// If it is not, it always be treated as being ready.
+/// If it is not, it will always be treated as being ready.
 ///
 /// This is typically paired with an [`ActionState`](crate::action_state::ActionState):
 /// if the action state is just-pressed (or another triggering condition is met),
 /// and the cooldown is ready, then perform the action and trigger the cooldown.
 ///
-/// This type is included as part of the [`InputManagerBundle`](crate::InputManagerBundle),
-/// but can also be used as a resource for singleton game objects.
+/// This type can be used as either a component or as a resource for singleton game objects.
 ///
 ///     
 /// ```rust
