@@ -3,29 +3,20 @@
 use crate::pool::RegeneratingPool;
 use crate::{charges::ChargeState, cooldown::CooldownState, Abilitylike};
 
-use bevy::ecs::{prelude::*, resource::IsResource};
+use bevy::ecs::prelude::*;
 use bevy::time::Time;
 
 /// Advances all [`CooldownState`] components and resources for ability type `A`.
 pub fn tick_cooldowns<A: Abilitylike>(
     mut query: Query<
         (Option<&mut CooldownState<A>>, Option<&mut ChargeState<A>>),
-        (Without<IsResource>, Or<(With<CooldownState<A>>, With<ChargeState<A>>)>),
+        Or<(With<CooldownState<A>>, With<ChargeState<A>>)>,
     >,
-    cooldowns_res: Option<ResMut<CooldownState<A>>>,
-    charges_res: Option<ResMut<ChargeState<A>>>,
     time: Res<Time>,
 ) {
     let delta_time = time.delta();
 
-    // Only tick the Cooldowns resource if it exists
-    if let Some(mut cooldowns) = cooldowns_res {
-        let charges = charges_res.map(|res| res.into_inner());
-
-        cooldowns.tick(delta_time, charges);
-    }
-
-    // Only tick the Cooldowns components if they exist
+    // Only tick the Cooldowns if they exist
     for (cooldowns, charges) in query.iter_mut() {
         if let Some(mut cooldowns) = cooldowns {
             let charges = charges.map(|data| data.into_inner());
