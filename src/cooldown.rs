@@ -24,7 +24,7 @@ use std::{collections::HashMap, fmt::Display, marker::PhantomData};
 ///
 ///     
 /// ```rust
-/// use bevy::{utils::Duration, reflect::Reflect};
+/// use bevy::reflect::Reflect;
 /// use leafwing_abilities::prelude::*;
 /// use leafwing_input_manager::prelude::*;
 ///
