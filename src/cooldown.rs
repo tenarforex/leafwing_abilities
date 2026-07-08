@@ -5,10 +5,7 @@ use crate::{
     Abilitylike, CannotUseAbility,
 };
 
-use bevy::{
-    ecs::prelude::Resource,
-    reflect::Reflect,
-};
+use bevy::{ecs::prelude::Resource, reflect::Reflect};
 use core::time::Duration;
 use serde::{Deserialize, Serialize};
 use std::{collections::HashMap, fmt::Display, marker::PhantomData};

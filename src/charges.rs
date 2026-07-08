@@ -2,10 +2,7 @@
 //! Actions may only be used if at least one charge is available.
 //! Unlike pools, charges are not shared across abilities.
 
-use bevy::{
-    ecs::prelude::Resource,
-    reflect::Reflect,
-};
+use bevy::{ecs::prelude::Resource, reflect::Reflect};
 use std::{fmt::Display, marker::PhantomData};
 
 use crate::{Abilitylike, CannotUseAbility};
