@@ -3,14 +3,14 @@
 use crate::pool::RegeneratingPool;
 use crate::{charges::ChargeState, cooldown::CooldownState, Abilitylike};
 
-use bevy::ecs::prelude::*;
+use bevy::ecs::{prelude::*, resource::IsResource};
 use bevy::time::Time;
 
 /// Advances all [`CooldownState`] components and resources for ability type `A`.
 pub fn tick_cooldowns<A: Abilitylike>(
     mut query: Query<
         (Option<&mut CooldownState<A>>, Option<&mut ChargeState<A>>),
-        Or<(With<CooldownState<A>>, With<ChargeState<A>>)>,
+        (Without<IsResource>, Or<(With<CooldownState<A>>, With<ChargeState<A>>)>),
     >,
     cooldowns_res: Option<ResMut<CooldownState<A>>>,
     charges_res: Option<ResMut<ChargeState<A>>>,
